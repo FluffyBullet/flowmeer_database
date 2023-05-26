@@ -1,4 +1,4 @@
-from flowmeer_database.permissions import IsOwnerOrReadOnly
+from flowmeer_db.permissions import IsOwnerOrReadOnly
 from django.http import Http404
 from rest_framework import status
 from rest_framework.views import APIView
