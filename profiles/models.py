@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Profile(models.Model):
+    # Creating ID Detials of the profile specific to the user.
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
@@ -56,6 +57,7 @@ class Profile(models.Model):
         ('honeysuckle','Honeysuckle'),
         ]
     
+    # customizing the profile for the users requirements, image and flower group
     fav_flower_family = models.CharField(choices=flower_family, max_length=35, default="bellflower")
     profile_pic = models.ImageField(
         upload_to='images/', default="https://res.cloudinary.com/dz1h0duk6/image/upload/v1683569094/default_rqwgw0.png"
