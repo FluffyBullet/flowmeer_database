@@ -10,7 +10,7 @@ class Vote(models.Model):
     Grants the ability of users to +1 vote for the post/image
     """
 
-    owner = models.ForeignKey(User, on_delete=models.CACSADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, related_name='votes', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 

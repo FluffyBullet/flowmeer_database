@@ -1,5 +1,5 @@
-from rest_frameowrk import generics, permissions
-from flowmeer_db import IsOwnerOrReadOnly
+from rest_framework import generics, permissions
+from flowmeer_db.permissions import IsOwnerOrReadOnly
 from votes.models import Vote
 from votes.serializer import VoteSerializer
 
@@ -16,7 +16,7 @@ class VoteList(generics.ListCreateAPIView):
         serializer.save(owner=self.request.user)
 
 
-class VoteDetails(generics.RetriveDestroyAPIView):
+class VoteDetails(generics.RetrieveDestroyAPIView):
     """
     User can Delete or view by username
     """
