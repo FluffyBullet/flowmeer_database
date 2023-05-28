@@ -26,4 +26,4 @@ class CommentDetailSerializer(CommentSerializer):
     gathers context and displays for other users to view. 
     """
 
-    post = serializer.ReadOnlyField(source='post.id')
+    post = serializers.ReadOnlyField(source='post.id')
