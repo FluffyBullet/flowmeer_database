@@ -9,6 +9,7 @@ colorama==0.4.6
 cryptography==39.0.0
 defusedxml==0.7.1
 dj-database-url==0.5.0
+dj-rest-auth==4.0.1
 dj3-cloudinary-storage==0.0.6
 Django==3.2.16
 django-allauth==0.52.0
@@ -19,6 +20,7 @@ django-summernote==0.8.20.0
 django-view-table==1.0.1
 django-zurb-foundation==5.5.0
 djangorestframework==3.14.0
+djangorestframework-simplejwt==5.2.2
 Flask==2.2.2
 Flask-SQLAlchemy==2.5.1
 greenlet==2.0.0.post0
