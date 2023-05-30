@@ -36,7 +36,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = ['localhost', 'flowmeerdb.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'flowmeerdb.herokuapp.com','127.0.0.1']
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES':  [(
@@ -92,7 +92,7 @@ INSTALLED_APPS = [
 SITE_ID=1
 
 MIDDLEWARE = [
-    'corsheadlers.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

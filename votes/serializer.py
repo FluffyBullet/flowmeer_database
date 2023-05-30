@@ -11,7 +11,7 @@ class VoteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Vote
-        field = ['id', 'created_at', 'owner', 'post']
+        fields = ['id', 'created_at', 'owner', 'post']
 
         def create(self, validated_data):
             try:
