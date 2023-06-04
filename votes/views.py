@@ -24,4 +24,7 @@ class VoteDetails(generics.RetrieveDestroyAPIView):
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = VoteSerializer
     queryset = Vote.objects.all()
+
+    def perform_destroy(self, instance):
+        instance.delete()
     

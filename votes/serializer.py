@@ -20,6 +20,3 @@ class VoteSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError({
                 'detail':'Duplicate detected'
             })
-
-    def delete(self, instance):
-        instance.delete()
