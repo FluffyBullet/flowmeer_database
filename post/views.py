@@ -20,8 +20,8 @@ class ListPost(generics.ListCreateAPIView):
         comments_count=Count('comment', dinstict=True)
     ).order_by('created_at')
     filter_backends = [
-        filters.OrderingFilter,
-        filters.SearchFilter,
+        filters.OrderingFilter
+        filters.SearchFilter,,
         DjangoFilterBackend,
     ]
     filterset_fields = [
@@ -47,16 +47,3 @@ class DetailPost(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PostSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Post.objects.all()
-
-class SearchPost(generics.ListAPIView):
-    """
-    Return filtered list of post depending on users search value
-    """
-
-    serializer_class = PostSerializer
-    permission_classes = [permissions.IsAuthenticated]
-
-    def get_queryset(self):
-        query = self.request.GET.get('search','')
-        queryset = Post.objects.filter(title__icontains=query)
-        return queryset
