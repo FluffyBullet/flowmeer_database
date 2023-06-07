@@ -20,8 +20,8 @@ class ListPost(generics.ListCreateAPIView):
         comments_count=Count('comment', dinstict=True)
     ).order_by('created_at')
     filter_backends = [
-        filters.OrderingFilter
-        filters.SearchFilter,,
+        filters.OrderingFilter,
+        filters.SearchFilter,
         DjangoFilterBackend,
     ]
     filterset_fields = [
