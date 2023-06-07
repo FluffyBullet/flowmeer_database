@@ -57,7 +57,7 @@ class Post(models.Model):
         ('umbellifer','Umbellifer'),
         ('honeysuckle','Honeysuckle'),
         ]
-    flower_tag = models.CharField(max_length=20, choices=flower_family)
+    flower_tag = models.CharField(max_length=20)
 
     class Meta:
         ordering = ['-created_at']
