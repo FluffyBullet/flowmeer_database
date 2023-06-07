@@ -29,8 +29,8 @@ class ListPost(generics.ListCreateAPIView):
     search_fields = [
         'owner__username',
         'title',
-        'flower_family',
-        'comments_count',
+        'flower_tag',
+        'comment_count',
     ]
 
     def perform_create(self, serializer):
