@@ -1,7 +1,7 @@
 from django.db.models import Count
 from rest_framework import permissions, filters
 from rest_framework import generics
-from djang_filters.rest_framework impoort DjangoFilterBackend
+from django_filters.rest_framework import DjangoFilterBackend
 from .models import Post
 from .serializers import PostSerializer
 from flowmeer_db.permissions import IsOwnerOrReadOnly
