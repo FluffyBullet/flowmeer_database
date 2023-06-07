@@ -17,7 +17,7 @@ class ListPost(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Post.objects.annotate(
         votes_count=Count('votes', distinct=True),
-        comments_count=Count('comment', dinstict=True)
+        comments_count=Count('comment', distinct=True)
     ).order_by('created_at')
     filter_backends = [
         filters.OrderingFilter,
