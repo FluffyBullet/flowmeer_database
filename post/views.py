@@ -27,6 +27,9 @@ class ListPost(generics.ListCreateAPIView):
         'owner__profile',
     ]
     search_fields = [
+        'owner__username',
+        'title',
+        'flower_family',
         'comments_count',
     ]
 
