@@ -28,6 +28,7 @@ class ListPost(generics.ListCreateAPIView):
     ]
     search_fields = [
         'title',
+        'flower_tag',
     ]
 
     def perform_create(self, serializer):
