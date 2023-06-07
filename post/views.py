@@ -16,8 +16,7 @@ class ListPost(generics.ListCreateAPIView):
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Post.objects.annotate(
-        votes_count=Count('votes', distinct=True),
-        comments_count=Count('comment', distinct=True)
+        comments_count=Count('comment', distinct=True),
     ).order_by('created_at')
     filter_backends = [
         filters.OrderingFilter,
@@ -25,13 +24,10 @@ class ListPost(generics.ListCreateAPIView):
         DjangoFilterBackend,
     ]
     filterset_fields = [
-        'owner__vote__profile',
         'owner__profile',
     ]
     search_fields = [
-        'votes_count',
         'comments_count',
-        'votes__created_at',
     ]
 
     def perform_create(self, serializer):
