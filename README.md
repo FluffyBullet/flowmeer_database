@@ -6,6 +6,7 @@
 - [Setting Up](#SetUp)
 - [Midway testing](#Testing)
 - [Methodology](#Method)
+- [Use of API Database](#how-this-database-affects-my-front-end-project)
 
 
 ## Introduction
@@ -60,6 +61,8 @@ __liked_by__ will be linked with the owner of the like with the post. Combinatio
 ## Testing
 On creation of tables, I used django's included APITestCase to ensure data is processed correctly. Pairing this will manual testing, I found this approach allowed me to display potential bugs and repair before causing complications later in the line.
 
+Testing is also followed up with behaviour driven development on completion of the project. This is advised on the front end readme file with a table to advise of expected behaviours and their outcomes.
+
 __posttest__ 
 **************
 
@@ -98,4 +101,45 @@ To create the project, head to your terminal list and enter:
     pip3 install django-admin startproject .
 
 *note the dot at the end is an important addition, commanding the project to be created inside the current folder.*
+
+Creating individual apps thereafter can be created by running a command line prompt:
+
+    django manage.py createapp <enter name here>
+
+replacing your chosen name between angled brackets.
+
+To link your app with your project, head to settings.py in your project you created first, focusing on "INSTALLED_APPS", adding your application to the project.
+
+further guides can be found on: https://www.w3schools.com/django/index.php
+
+### Creating a Branch of my database project
+
+To create fork of my respository, navigate to the database respository either above or here:https://github.com/FluffyBullet/flowmeerdb
+
+On the light grey banner across the top, select the dropdown menu adjacent to "Fork", chosing the option to create a new fork.
+
+This will allow you to make a replicate of my project and save on your personal (or chosen) github account for further developments.
+
+### Deploying the database onto the web
+
+Whilst this application will allow processing of data and feeding back information required, two further steps are required to make this operational.
+
+1. Creating a Database.
+    - Visit a host website, signing up for their database and options. In this event, I chose https://www.elephantsql.com/, signing up for their free option of Tiny Turtle Plan.
+    - Upon creation of your database, you will be provided with an API Key. This information is required to be added into your env.py file, but keep secret from the public. This is also to be stored as a variable in the Heroku application.
+1. Create app project in Heroku
+    - An account will need to be created for salesforce/heroku to continue.
+    - Within the heading banner of your logged in page, you can create a new application.
+    - Link your respository for the database with Heroku, then either pushing for manual deployment on heroku, or automatic.
+    - Once your app is created, head over to the settings tab, where you are met with the inner-workings of the application. Here you will find a section dedicated for config var (variables).
+        - Within this section, you are required to enter variables which allow your database to communicate with. This includes; allowed host, client origin, database url and any other external url's you are using.
+
+## How this database affects my front end project:
+
+On deployment my database receives a URL to be stored within the database as a config variable. This allows request via the URL to be processed within the database - on provision JWT Tokens, authorized users and other variables match. 
+
+My front end application use the url as an API route to send a stringified (JSON) package for processing.
+In my front end application I'm using Axios to make connection with my API and return the response. Axios is a great tool for use with React as access tokens are only granted for 5 minutes, although a key permitted from the API Connection is suitable for 24 hours.
+
+Setting up Axios interceptors, on each request a check is made to make sure the tokens are valid and if not refresh the mentioned token to authorize the connection.
 
