@@ -17,11 +17,12 @@ class ListProfile(generics.ListAPIView):
     queryset = Profile.objects.annotate(
         post_cout=Count('owner__post', distinct=True),
     ).order_by('-created_at')
-    serializer_class = ProfileSerializerfilter_backends = [
+    serializer_class = ProfileSerializer
+    filter_backends = [
         filters.OrderingFilter,
         DjangoFilterBackend
     ]
-    order_fields = [
+    ordering_fields = [
         'post_count',
     ]
 
