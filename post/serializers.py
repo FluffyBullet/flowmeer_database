@@ -36,4 +36,5 @@ class PostSerializer(serializers.ModelSerializer):
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',
             'title', 'image', 'flower_tag', 'votes_id', 'votes_count',
+            'comments_count',
         ]
