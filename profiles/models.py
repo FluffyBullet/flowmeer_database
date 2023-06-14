@@ -60,7 +60,7 @@ class Profile(models.Model):
     # customizing the profile for the users requirements, image and flower group
     fav_flower_family = models.CharField(choices=flower_family, max_length=35, default="bellflower")
     profile_pic = models.ImageField(
-        upload_to='images/', default="https://res.cloudinary.com/dz1h0duk6/image/upload/v1683569094/default_rqwgw0.png"
+        upload_to='images/', default="https://res.cloudinary.com/dz1h0duk6/image/upload/v1686776587/orange_default_ewnird.png"
     )
     
     class Meta():
