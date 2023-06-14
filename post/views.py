@@ -32,6 +32,10 @@ class ListPost(generics.ListCreateAPIView):
         'title',
         'flower_tag',
     ]
+    ordering_fields = [
+        'votes_count',
+        'comments_count',
+    ]
 
     def perform_create(self, serializer):
         serializer.save(owner = self.request.user)
