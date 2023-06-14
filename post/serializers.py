@@ -31,7 +31,7 @@ class PostSerializer(serializers.ModelSerializer):
         return request.user == obj.owner
 
     def get_votes_id(self, obj):
-        request = self.context['request'].user
+        user = self.context['request'].user
         if user.is_authenticated:
             vote = Vote.objects.filter(owner = user, post = obj).first()
             return vote.id if vote else None
